@@ -1,0 +1,25 @@
+@import '../../styles/variables';
+
+.character-filter{
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+
+  &__select{
+    outline: none;
+  }
+
+  &__btn{
+    width: 115px !important;
+    background-color: #12E500 !important;
+    color: black;
+    transform: none !important;
+  }
+
+  &__btn:disabled{
+    opacity: 0.5;
+  }
+}

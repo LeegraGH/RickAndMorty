@@ -1,0 +1,45 @@
+@import '../../styles/variables';
+
+.character-item{
+
+  display: inline-block;
+  background-color: $bg-content;
+  border-radius: 20px;
+
+  &__image{
+    display: block;
+    border-radius: 20px 20px 0 0;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &__info{
+    padding: 10px;
+  }
+
+  &__title{
+    margin-top: 5px;
+    font-size: 16px;
+  }
+
+  &__gender{
+    color: #b2b0b0;
+    font-size: 13px;
+    font-style: italic;
+  }
+
+  &__status{
+    font-size: 14px;
+    margin-top: 10px;
+  }
+}
+
+.character-item:hover{
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+.character-item:not(:hover){
+  transform: scale(1);
+  transition: transform 0.2s ease;
+}

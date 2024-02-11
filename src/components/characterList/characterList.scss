@@ -1,0 +1,18 @@
+.characters-grid {
+  margin-top: 50px;
+  width: 100%;
+  display: grid;
+  grid-gap: 20px;
+  justify-items: stretch;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+
+  &__btn {
+    display: block;
+    margin-top: 30px;
+    font-size: 22px;
+
+    background-color: #12E500 !important;
+    color: black;
+  }
+}
