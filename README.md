@@ -4,4 +4,4 @@
 
 ## Тестовый проект
 
-[The Site](https://rick-and-morty-olive-ten.vercel.app/)
+[Click here to visit the portal](https://rick-and-morty-olive-ten.vercel.app/)
