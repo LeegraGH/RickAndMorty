@@ -2,6 +2,7 @@ import Lottie from "lottie-react";
 import classNames from 'classnames';
 
 import notFound from "../../assets/json/not-found.json";
+import './notFound.scss';
 
 const NotFound = ({styles, classList}) => {
     return (

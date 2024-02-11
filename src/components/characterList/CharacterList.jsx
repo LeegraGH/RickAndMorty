@@ -51,7 +51,7 @@ const CharacterList = () => {
         if (loading === "loading" && !chars.length) {
             return <Spinner styles={{width: "150px"}} classList={'center-col'}/>;
         } else if (loading === "error") {
-            return <NotFound styles={{width: "500px"}} classList={'center-col'}/>;
+            return <NotFound classList={'center-col'}/>;
         }
 
         const characters = formatCharacters(chars);
