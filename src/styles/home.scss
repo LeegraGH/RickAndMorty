@@ -1,20 +1,6 @@
-@import '../../styles/variables';
+@import './variables';
 
-.characters-layout {
-  width: 90%;
-  margin: 0 auto;
-  background-color: $bg-main;
-  border-radius: 20px;
-  padding: 60px;
-
-  @media (max-width: 480px) {
-    padding: 40px;
-  }
-
-  @media (max-width: 370px) {
-    padding: 20px;
-  }
-
+.characters-content {
   &__title {
     font-size: 48px;
     text-align: center;

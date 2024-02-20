@@ -20,11 +20,11 @@ const CharacterSearch = () => {
 
     return (
         <div className='character-search'>
-            <h3 className='character-search__title'>Search: </h3>
             <input className='character-search__input'
                    type="text"
                    placeholder='Enter the character`s name'
                    value={name}
+                   name='search'
                    onChange={e => setName(e.target.value)}
             />
         </div>

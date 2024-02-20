@@ -34,11 +34,7 @@ const CharacterList = () => {
     }, [filters]);
 
     const formatCharacters = (chars) => {
-        return chars.map(({id, name, image, gender, status}) => <CharacterItem key={id}
-                                                                               name={name}
-                                                                               image={image}
-                                                                               status={status}
-                                                                               gender={gender}/>)
+        return chars.map((data) => <CharacterItem key={data.id} data={data}/>)
     }
 
     const incrementPage = () => {
@@ -64,7 +60,7 @@ const CharacterList = () => {
                     : data?.info?.next !== null
                     && <button
                         onClick={incrementPage}
-                        className='characters-grid__btn btn center-col'
+                        className='characters-layout__btn btn center-col'
                         type='button'>
                         More characters
                     </button>
@@ -77,7 +73,7 @@ const CharacterList = () => {
 
     return (
         <>
-            <div className='characters-grid'>
+            <div className='characters-layout'>
                 {content}
             </div>
         </>

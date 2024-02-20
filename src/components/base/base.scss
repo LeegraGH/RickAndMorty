@@ -1,0 +1,16 @@
+@import '../../styles/variables';
+
+.base-layout {
+  margin: 0 auto;
+  background-color: $bg-main;
+  border-radius: 20px;
+  padding: 60px;
+
+  @media (max-width: 480px) {
+    padding: 40px;
+  }
+
+  @media (max-width: 370px) {
+    padding: 20px;
+  }
+}

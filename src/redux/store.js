@@ -1,9 +1,11 @@
 import {configureStore} from '@reduxjs/toolkit';
-import characterReducer from './slices/charactersSlice';
+import charactersReducer from './slices/charactersSlice';
+import characterReducer from './slices/characterSlice';
 
 const store = configureStore({
     reducer: {
-        characters: characterReducer
+        characters: charactersReducer,
+        character: characterReducer
     },
     devTools: process.env.NODE_ENV !== 'production',
 });

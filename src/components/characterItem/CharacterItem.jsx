@@ -1,31 +1,26 @@
+import {Link} from "react-router-dom";
+
+import {dryStatus} from "../../utils/dryStatus";
+
 import './characterItem.scss';
 
-const CharacterItem = ({name, image, gender, status}) => {
+const CharacterItem = ({data}) => {
 
-    const dryStatus = (status) => {
-        switch (status) {
-            case 'Alive':
-                return "green";
-            case 'Dead':
-                return "red";
-            case 'unknown':
-                return 'yellow';
-            default:
-                return null;
-        }
-    }
-
-    const colorStatus = dryStatus(status);
+    const {id, name, image, gender, status, species} = data;
 
     return (
-        <div className='character-item'>
-            <img className='character-item__image' src={image} alt={name}/>
-            <div className='character-item__info'>
-                <h3 className='character-item__title'>{name}, <span className='character-item__gender'>{gender}</span>
-                </h3>
-                <div className='character-item__status' style={{color: colorStatus}}>{status}</div>
+        <Link to={`/characters/${id}`}>
+            <div className='character-item'>
+                <img className='character-item__image' src={image} alt={name}/>
+                <div className='character-item__info'>
+                    <h3 className='character-item__title'>{name}</h3>
+                    <div className='character-item__status'>
+                        {species},<span className='character-item__gender'> {gender.toLowerCase()}</span>
+                    </div>
+                    <div className='character-item__status' style={{color: dryStatus(status)}}>{status}</div>
+                </div>
             </div>
-        </div>
+        </Link>
     )
 }
 

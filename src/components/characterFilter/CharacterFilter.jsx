@@ -28,7 +28,6 @@ const CharacterFilter = () => {
 
     return (
         <div className='character-filter'>
-            <h3 className='character-filter__title'>Filters:</h3>
             <select
                 className='character-filter__select select'
                 name="status"

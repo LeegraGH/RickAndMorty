@@ -1,26 +1,21 @@
-import '../characterList/CharacterList';
-import CharacterList from "../characterList/CharacterList";
-import CharacterSearch from "../characterSearch/CharacterSearch";
-import CharacterFilter from "../characterFilter/CharacterFilter";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
-import bgImage from "../../assets/images/bg.png";
-import './app.scss';
+import Header from "../header/Header";
+import {HomePage, SinglePage, Page404} from '../../pages';
+
 const App = () => {
 
     return (
-        <div className="container">
-            <div className='characters-layout'>
-                <h1 className='characters-layout__title'>
-                    The Rick And Morty Portal
-                    <img className='characters-layout__bg-image' src={bgImage} alt="Rick and Morty"/>
-                </h1>
-                <div className='characters-layout__tabs'>
-                    <CharacterSearch/>
-                    <CharacterFilter/>
-                </div>
-                <CharacterList/>
+        <Router>
+            <div className="container">
+                <Header/>
+                <Routes>
+                    <Route path='/' element={<HomePage/>}/>
+                    <Route path='/characters/:id' element={<SinglePage/>}/>
+                    <Route path='*' element={<Page404/>}/>
+                </Routes>
             </div>
-        </div>
+        </Router>
     )
 }
 

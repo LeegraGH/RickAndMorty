@@ -1,0 +1,52 @@
+
+.character {
+
+  &-layout {
+    display: grid;
+    grid-template-columns: 300px auto;
+    grid-template-rows: 300px auto;
+    row-gap: 60px;
+    column-gap: 30px;
+
+    &__img {
+      border-radius: 20px;
+      box-shadow: 5px 10px 26px 3px rgba(0, 0, 0, 0.17);
+    }
+
+    &__information {
+      font-size: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 30px 0;
+    }
+
+    &__episodes{
+      grid-column: 1 / -1;
+    }
+  }
+
+  &-information {
+    &__title {
+      font-size: 36px;
+    }
+
+    &__status{
+      font-size: 24px;
+    }
+
+    &__descr {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+
+  &-episodes{
+    &__list{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+}

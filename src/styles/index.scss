@@ -14,12 +14,12 @@ body {
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 50px 0;
 }
 
-.btn,.select {
+.btn, .select {
   width: max-content;
   padding: 10px;
   background-color: $bg-content;
@@ -35,12 +35,12 @@ body {
   transition: transform 0.3s ease;
 }
 
-.btn:not(:hover){
+.btn:not(:hover) {
   transform: scale(1);
   transition: transform 0.3s ease;
 }
 
-.center-col{
+.center-col {
   grid-column: 1 / -1;
   justify-self: center;
 }
