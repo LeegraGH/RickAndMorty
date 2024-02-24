@@ -1,83 +1,78 @@
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
-import CharacterItem from "../characterItem/CharacterItem";
 import Spinner from "../spinner/Spinner";
 import NotFound from "../notFound/NotFound";
-import {fetchCharacters} from "../../redux/slices/charactersSlice";
 
-import './characterList.scss';
+import './itemList.scss';
 
-const CharacterList = () => {
+const ItemList = ({fetch, category, Component}) => {
+
     const [page, setPage] = useState(1);
-    const [chars, setChars] = useState([]);
+    const [items, setItems] = useState([]);
 
     const dispatch = useDispatch();
-    const {data, loading, filters} = useSelector(state => state.characters);
+    const {data, loading, filters} = useSelector(state => state[category]);
 
     useEffect(() => {
-        dispatch(fetchCharacters(1));
+        dispatch(fetch(1));
     }, [])
 
     useEffect(() => {
         if (loading === "success") {
-            setChars(chars => [...chars, ...data.results]);
+            setItems(items => [...items, ...data.results]);
         }
     }, [loading]);
 
     useEffect(() => {
         if (data) {
             setPage(1);
-            dispatch(fetchCharacters(1));
-            setChars([]);
+            dispatch(fetch(1));
+            setItems([]);
         }
     }, [filters]);
 
-    const formatCharacters = (chars) => {
-        return chars.map((data) => <CharacterItem key={data.id} data={data}/>)
-    }
-
     const incrementPage = () => {
         const nextPage = page + 1;
-        dispatch(fetchCharacters(nextPage));
+        dispatch(fetch(nextPage));
         setPage(nextPage);
     }
 
-    const onLoadChars = (chars) => {
-        if (loading === "loading" && !chars.length) {
+    const onLoadItems = (items) => {
+        if (loading === "loading" && !items.length) {
             return <Spinner styles={{width: "150px"}} classList={'center-col'}/>;
         } else if (loading === "error") {
             return <NotFound classList={'center-col'}/>;
         }
 
-        const characters = formatCharacters(chars);
+        const listItems = items.map((item) => <Component key={item.id} data={item}/>);
 
         return (
             <>
-                {characters}
+                {listItems}
                 {loading === "loading"
                     ? <Spinner styles={{width: "100px"}} classList={'center-col'}/>
                     : data?.info?.next !== null
                     && <button
                         onClick={incrementPage}
-                        className='characters-layout__btn btn center-col'
+                        className='items-layout__btn btn center-col'
                         type='button'>
-                        More characters
+                        More
                     </button>
                 }
             </>
         )
     }
 
-    const content = onLoadChars(chars);
+    const content = onLoadItems(items);
 
     return (
         <>
-            <div className='characters-layout'>
+            <div className='items-layout'>
                 {content}
             </div>
         </>
     )
 }
 
-export default CharacterList;
+export default ItemList;

@@ -10,7 +10,7 @@ export const fetchCharacters = createAsyncThunk('characters/fetchCharacters',
 
         const params = new URLSearchParams([['page', page], ...existingFilters]).toString();
 
-        return await http(`https://rickandmortyapi.com/api/character/?${params}`);
+        return await http(`/api/character/?${params}`);
     }
 )
 

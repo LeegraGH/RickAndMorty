@@ -2,6 +2,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {Link} from "react-router-dom";
 
+import EpisodeItem from "../episodeItem/EpisodeItem";
 import {dryStatus} from "../../utils/dryStatus";
 import Spinner from "../spinner/Spinner";
 import NotFound from "../notFound/NotFound";
@@ -15,10 +16,23 @@ const SingleCharacter = ({id}) => {
     const {data, loading} = useSelector(state => state.character);
 
     useEffect(() => {
-        dispatch(fetchCharacter(id));
+        dispatch(fetchCharacter({id}));
 
         return () => dispatch(clearCharacter());
     }, []);
+
+    const onLoadEpisodes = (data) => {
+
+        const episodes = data.map(episode => {
+            return <EpisodeItem key={episode.id} data={episode}/>;
+        })
+
+        return (
+            <div className='character-episodes__list'>
+                {episodes}
+            </div>
+        )
+    }
 
     const onLoadChar = (char) => {
         if (loading === "loading" || loading === "idle") {
@@ -27,7 +41,7 @@ const SingleCharacter = ({id}) => {
             return <NotFound classList={'center-col'}/>;
         }
 
-        console.log(char.episode)
+        const episodes = onLoadEpisodes(char.episode);
 
         return (
             <>
@@ -47,10 +61,8 @@ const SingleCharacter = ({id}) => {
                     </div>
                 </div>
                 <div className='character-layout__episodes'>
-                    <h2>List of episodes in which this character appeared:</h2>
-                    <div className='character-episodes__list'>
-                        {/*{char.episode}*/}
-                    </div>
+                    <h2 className='character-episodes__title'>List of episodes in which this character appeared:</h2>
+                    {episodes}
                 </div>
             </>
         )

@@ -1,6 +1,6 @@
 @import '../../styles/variables';
 
-.character-search {
+.search {
   display: flex;
   gap: 10px;
   flex-direction: row;
@@ -18,7 +18,7 @@
   }
 
   &__input {
-    width: 215px;
+    width: 220px;
     padding: 10px;
     background-color: $bg-content;
     border-radius: 5px;

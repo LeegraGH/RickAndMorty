@@ -19,6 +19,10 @@ body {
   padding: 50px 0;
 }
 
+a{
+  text-decoration: none;
+}
+
 .btn, .select {
   width: max-content;
   padding: 10px;
@@ -38,6 +42,16 @@ body {
 .btn:not(:hover) {
   transform: scale(1);
   transition: transform 0.3s ease;
+}
+
+.item:hover{
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+.item:not(:hover){
+  transform: scale(1);
+  transition: transform 0.2s ease;
 }
 
 .center-col {

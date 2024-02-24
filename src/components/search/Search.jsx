@@ -1,28 +1,26 @@
 import {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
 
-import {updateCharacter} from "../../redux/slices/charactersSlice";
+import './search.scss';
 
-import './characterSearch.scss';
-
-const CharacterSearch = () => {
+const Search = ({updateName, category}) => {
     const [name, setName] = useState("");
 
     const dispatch = useDispatch();
 
     useEffect(() => {
         const search = setTimeout(() => {
-            dispatch(updateCharacter(name));
+            dispatch(updateName(name));
         }, 300);
 
         return () => clearTimeout(search);
     }, [name]);
 
     return (
-        <div className='character-search'>
-            <input className='character-search__input'
+        <div className='search'>
+            <input className='search__input'
                    type="text"
-                   placeholder='Enter the character`s name'
+                   placeholder={`Enter the ${category}\`s name`}
                    value={name}
                    name='search'
                    onChange={e => setName(e.target.value)}
@@ -31,4 +29,4 @@ const CharacterSearch = () => {
     )
 }
 
-export default CharacterSearch;
+export default Search;

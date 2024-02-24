@@ -10,12 +10,12 @@ const CharacterItem = ({data}) => {
 
     return (
         <Link to={`/characters/${id}`}>
-            <div className='character-item'>
+            <div className='item character-item'>
                 <img className='character-item__image' src={image} alt={name}/>
                 <div className='character-item__info'>
                     <h3 className='character-item__title'>{name}</h3>
                     <div className='character-item__status'>
-                        {species},<span className='character-item__gender'> {gender.toLowerCase()}</span>
+                        {species},<span className='character-item__gender'> {gender?.toLowerCase()}</span>
                     </div>
                     <div className='character-item__status' style={{color: dryStatus(status)}}>{status}</div>
                 </div>

@@ -18,7 +18,7 @@
   }
 
   &__icon-img {
-    width: 100%;
+    width: 60px;
   }
 
   &__nav {
@@ -26,5 +26,14 @@
     flex-direction: row;
     gap: 20px;
 
+  }
+
+  &__link {
+    text-transform: uppercase;
+
+    &_active {
+      font-weight: bold;
+      color: $green-element;
+    }
   }
 }
